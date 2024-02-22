@@ -1,0 +1,55 @@
+body{
+background-color: aqua;
+}
+header{
+    text-align: center;
+    font-size: 100px;
+    background-color: bisque;
+    height: 100px;
+    width: 100%;
+    box-shadow: 1px 1px 40px black;
+}
+#czas{
+    position: absolute;
+    text-align: center;
+    font-size: larger;
+    width: 100px;
+    height: 60px;
+    background-color: rgba(25, 131, 213, 0.574);
+    top: 20%;
+    left: 5%;
+    box-shadow: 1px 1px 10px black;
+}
+#kw{
+    position: absolute;
+    text-align: center;
+    font-size: larger;
+    width: 120px;
+    height: 60px;
+    background-color: rgba(25, 131, 213, 0.574);
+    top: 30%;
+    left: 5%;
+    box-shadow: 1px 1px 10px black;
+}
+#ka{
+    position: absolute;
+    text-align: center;
+    font-size: larger;
+    width: 120px;
+    height: 60px;
+    background-color: rgba(25, 131, 213, 0.574);
+    top: 40%;
+    left: 5%;
+    box-shadow: 1px 1px 10px black;
+}
+#fo{
+    position: absolute;
+    text-align: center;
+    font-size: larger;
+    width: 124px;
+    height: 60px;
+    background-color: rgba(25, 131, 213, 0.574);
+    top: 50%;
+    left: 5%;
+    box-shadow: 1px 1px 10px black;
+}

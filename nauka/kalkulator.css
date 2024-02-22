@@ -1,0 +1,162 @@
+body{
+    background-color: aqua;
+    }
+header{
+        text-align: center;
+        font-size: 100px;
+        background-color: bisque;
+        height: 120px;
+        width: 100%;
+        box-shadow: 1px 1px 40px black;
+}
+#powrot{
+        position: absolute;
+        text-align: center;
+        font-size: larger;
+        color: white;
+        width: 100px;
+        height: 60px;
+        background-color: rgb(23, 101, 120);
+        top: 3%;
+}
+#kalkulator{
+    position: absolute;
+    top: 20%;
+    left: 42%;
+    background-color: #3d3d3d;
+    box-shadow:  10px 10px 10px black;
+    height: 500px;
+    width: 400px;
+}
+#wynik{
+    position: absolute;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 114px;
+    width: 390px;
+    font-size: 100px;
+    top: 3px;
+    left: 5px;
+    background-color: blanchedalmond;
+}
+#dzialanie{
+    position: relative;
+    left: 3px;
+    top:25%;
+} 
+#dodawanie{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 75px;
+    height: 80px;
+}
+#odejmowanie{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 75px;
+    height: 80px;
+}
+#mnozenie{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 75px;
+    height: 80px;
+}
+#dzielenie{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 75px;
+    height: 80px;
+}
+#rowna_sie{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 75px;
+    height: 80px;
+}
+
+#liczby{
+    position: relative;
+    left: 3px;
+    top:35%;
+}
+#zero{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 76px;
+    height: 100px;
+}
+#jeden{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 76px;
+    height: 100px;
+}
+#dwa{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 76px;
+    height: 100px;
+}
+#trzy{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 76px;
+    height: 100px;
+}
+#cztery{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 76px;
+    height: 100px;
+}
+#liczby2{
+    position: relative;
+    left: 3px;
+    top:42%;
+}
+#piec{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 76px;
+    height: 100px;
+}
+#szesc{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 76px;
+    height: 100px;
+}
+#siedem{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 76px;
+    height: 100px;
+}
+#osiem{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 76px;
+    height: 100px;
+}
+#dziewiec{
+    position: relative;
+    text-align: center;
+    font-size: 60px;
+    width: 76px;
+    height: 100px;
+}
