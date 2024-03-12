@@ -170,14 +170,60 @@ book2.getCount()
 //zad 6
  let tableGenerator={
     table:[],
+    table2:[],
+    table3:[],
     randomNumber(min, max){
         let z_min=Math.floor(min)
         let z_max=Math.floor(max)
-        let liczba=0
-        for(let i=0 ;i<this.table.length;i++){
-            liczba=Math.floor(Math.random()*(z_max-z_min)+z_min)
-            this.table.push(liczba)
+        let liczba=Math.floor(Math.random()*(z_max-z_min)+z_min)
+        console.info("losowa liczba z przedziału "+" od "+z_min+" do "+z_max+" to:"+liczba)
+            
+        
+       
+    },
+    generateIncTable(nr){
+        let z_liczba=Math.floor(nr)
+        let rozmiar=z_liczba
+        for(let i=0 ;i<=z_liczba;i++){
+            this.table.push(i)
         }
+    },
+    generateRandomTable(lng, min, max){
+        let z_min=Math.floor(min)
+        let z_max=Math.floor(max)
+        let liczba=0
+        for(let i=0 ;i<=lng;i++){
+            liczba=Math.floor(Math.random()*(z_max-z_min)+z_min)
+            this.table2.push(liczba)
+        }
+    },
+    generateTableFromText(str){
+        if(typeof str ==='string'){
+        const slowo=str
+        
+        const podzial=slowo.split(' ')
+        console.log(podzial)
+        this.table3.push(podzial)
+        }else{
+            console.log("to nie jest string")
+        }
+
+    },
+    getMaxFromTable(arr){
+        let sortowanie=arr.sort((a,b)=>a-b)
+        let r=arr.length
+        let najwieksza=arr[r-1]
+        console.log("największa liczba z tablicy to:"+najwieksza)
+    },
+    getMinFromTable(arr){
+        let sortowanie=arr.sort((a,b)=>a-b)
+        let najmniejsza=arr[0]
+        console.log("najmniejsza liczba z tablicy to:"+najmniejsza)
+    },
+    delete(arr, index){
+        console.log("przed usunięciem: "+arr)
+        arr.splice(index,1)
+        console.log("po usunięciu: "+arr)
     },
     show(){
        for(const elem in tableGenerator){
@@ -187,10 +233,51 @@ book2.getCount()
        }
     }
  }
- tableGenerator.randomNumber(12,45)
+ let tab=[56,12,1,3];
+ tableGenerator.randomNumber(1,12)
+ tableGenerator.generateIncTable(5)
+ tableGenerator.generateRandomTable(3,1,20)
+ tableGenerator.generateTableFromText("tablica jest pelna")
+ tableGenerator.getMaxFromTable(tab)
+ tableGenerator.getMinFromTable(tab)
+ tableGenerator.delete(tab,3)
  tableGenerator.show()
 
 
-
+//zad 7
+let text={
+    check(txt, word){
+        const slowo=txt
+        const podzial=slowo.split(' ')
+        console.log(podzial)
+        for(let i = 0;i<podzial.length;i++){
+            if(podzial[i]===word){
+                 console.log(true)
+                 break
+            }else{
+                console.log(false)
+            }
+        }
+    },
+    getCount(txt){
+        console.log(txt.length)
+    },
+    getWordsCount(txt){
+        const slowo=txt
+        const podzial=slowo.split(' ')
+        console.log(podzial.length)
+    },
+    setCapitalize(txt){
+        const slowo=txt
+        const podzial=slowo.split(' ')
+        for(let i = 0;i<slowo.length;i++){
+        console.log(podzial[i][0].toUpperCase())
+        }
+    }
+}
+text.check("ala ma kota","eee")
+text.getCount("ala ma kota")
+text.getWordsCount("ala ma kota")
+text.setCapitalize("ala ma kota")
 
 
