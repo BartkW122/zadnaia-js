@@ -134,7 +134,23 @@ let book2={
             }
         }
     },
+    findByName(name2){ 
+        const imie=this.users.find(user=>user.name===name2);
+        if(imie){
+            console.log(imie)
+        }else{
+                console.log("nie ma")
+        }
+    },
+    findByPhone(phone2){ 
+        const telefon=this.users.find(user=>user.phone===phone2);
+        if(telefon){
+        console.log(telefon)
+        }else{
+            console.log("nie ma")
+        }
 
+    },
     getCount(){
         for(const user in book2){
             if( typeof book2[user]!=='function'){
@@ -146,17 +162,16 @@ let book2={
 
 /*findByPhone(phone2){ 
     
-}
-for(const user in book2){
- function findByName(name2){ 
-  const imie=book2.filter((e)=>e==name2);
-  console.log(imie)
-}
-}
-findByName('Max')*/
+}*/
+
+
+
+
 book2.addUser('Edek',18,12345633)
 book2.addUser('Max',23,123455553)
 book2.addUser('Juba',43,567432890)
+book2.findByName('Max')
+book2.findByPhone(567432890)
 book2.showUsers()
 book2.getCount()
 
