@@ -66,8 +66,8 @@ let spaceShip = {
     currentLocation:"Earth",
     flyDistance: 0,
     flyTo(place,distance) {
-       for(const i in spaceShip){
-            if (typeof this[i] != 'function') {
+       for(const item in spaceShip){
+            if (typeof spaceShip[item] != 'function') {
                 return this.currentLocation = place;
                 return this.flyDistance=distance
                 
