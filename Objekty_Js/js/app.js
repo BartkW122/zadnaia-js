@@ -75,8 +75,8 @@ let spaceShip = {
         }
     },
     showInfo() {
-        for (const i in spaceShip) {
-            if (typeof this[i] != 'function') {
+        for (const item in spaceShip) {
+            if (typeof spaceShip[item] != 'function') {
                 console.info("statek:"+ this.name);
                 console.info("statek odlecial do miejsca:"+ this.flyTo(gdzie_chcesz_leciec));
                 console.info("Statek przeleciał już całkowity dystans:"+ this.flyTo(odleglosc));
