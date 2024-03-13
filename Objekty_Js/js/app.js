@@ -134,22 +134,7 @@ let book2={
             }
         }
     },
-    findByName(name2){ 
-        for(const user in book2){
-        if( typeof book2[user]!=='function'){
-            
-            console.info(book2[user])
-        }
-        }
-    }, 
-    findByPhone(phone2){ 
-        for(const user in book2){
-        if( typeof book2[user]!=='function'){
-            
-            console.info(book2[user])
-        }
-        }
-    },
+
     getCount(){
         for(const user in book2){
             if( typeof book2[user]!=='function'){
@@ -159,12 +144,20 @@ let book2={
     }
 }
 
+/*findByPhone(phone2){ 
+    
+}
+for(const user in book2){
+ function findByName(name2){ 
+  const imie=book2.filter((e)=>e==name2);
+  console.log(imie)
+}
+}
+findByName('Max')*/
 book2.addUser('Edek',18,12345633)
 book2.addUser('Max',23,123455553)
 book2.addUser('Juba',43,567432890)
 book2.showUsers()
-book2.findByName('Max')
-book2.findByName(123455553)
 book2.getCount()
 
 //zad 6
