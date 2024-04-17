@@ -1,7 +1,15 @@
 function creat_li(todo) {
     let ul = document.querySelector("ul.list-group");
     let li = document.createElement('li');
-    
+    const currentDate = new Date();
+    let rok = currentDate.getFullYear();
+    let miesiac = currentDate.getMonth()+1;
+    let dzien = currentDate.getDate()
+    if(miesiac<10){
+        console.log(rok+"-"+"0"+miesiac+"-"+dzien);
+    }else{
+        console.log(rok+"-"+miesiac+"-"+dzien);
+    }
     let divrow = document.createElement("div");
     divrow.classList.add("row");
    
@@ -35,6 +43,7 @@ function creat_li(todo) {
     li.appendChild(divrow);
    
     ul.appendChild(li);
+    
 }
 
 listTodo.forEach(todo => {
