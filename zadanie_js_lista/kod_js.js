@@ -49,7 +49,6 @@ function createTodoLiElement(todo) {
     let buttonDelete = document.createElement('i')
     buttonDelete.classList.add('bi','bi-trash') 
     buttonDelete.addEventListener('click',function() {
-<<<<<<< HEAD
         //alert('aaa');
         let index=listTodo.indexOf(todo)
         listTodo.splice(index,1) 
@@ -76,13 +75,6 @@ function createTodoLiElement(todo) {
 
     divTools.appendChild(buttonDelete)
     divTools.appendChild(buttonEdit)
-=======
-        li.remove()
-    });
-
-
-    divTools.appendChild(buttonDelete)
->>>>>>> 927a60f9157c0e017cd1f719b48cab0175a879a6
 
     divRow.appendChild(divStatus)
     divRow.appendChild(divTitle);
@@ -131,13 +123,9 @@ form.addEventListener('submit', function (e) {
     let nameInput = document.querySelector('[name="title"]').value
     let stopDateInput = document.querySelector('[name="stop_date"]').value
     let statusInput = document.querySelector('[name="status"]').value
-<<<<<<< HEAD
     console.info(nameInput)
     console.info(stopDateInput)
     console.info(statusInput)
-=======
-    
->>>>>>> 927a60f9157c0e017cd1f719b48cab0175a879a6
     let obj = {
         title: nameInput,
         stop_date: new Date(stopDateInput),
