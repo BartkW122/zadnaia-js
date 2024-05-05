@@ -30,8 +30,4 @@ let listTodo = [
 		status: todoStatus.active,
 		prior: 1
 	}
-<<<<<<< HEAD
 ]
-=======
-]
->>>>>>> 927a60f9157c0e017cd1f719b48cab0175a879a6
