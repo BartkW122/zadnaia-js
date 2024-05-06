@@ -5,7 +5,7 @@ function createTodoLiElement(todo) {
     let li = document.createElement('li')
 
     let diff = differenceDate(todo.stop_date)
-    console.info(diff);
+    //console.info(diff);
     if (diff < 0) {
         li.classList.add('border', 'border-danger')
     } else if (diff < 6) {
@@ -61,15 +61,17 @@ function createTodoLiElement(todo) {
         let nameInput2 = document.querySelector('[name="title"]');
         let stopDateInput2 = document.querySelector('[name="stop_date"]');
         let statusInput2 = document.querySelector('[name="status"]');
-    
-       
+        let idInput2=document.querySelector('[name="id"]')
+      
         nameInput2.value = todo.title;
         stopDateInput2.value = formatDate(todo.stop_date);
         statusInput2.value = todo.status;
+        idInput2.value=todo.id
     
         console.info(nameInput2.value);
         console.info(stopDateInput2.value);
         console.info(statusInput2.value);
+        console.info(idInput2.value)
     });
     
 
@@ -102,8 +104,8 @@ function formatDate(date) {
     let day = date.getDate();
     let month = (date.getMonth() + 1);
     let year = date.getFullYear();
-
-    return year + '-' + (month) + '-' + day;
+   
+    return year + '-' + String(month).padStart(2,"0") + '-' + String(day).padStart(2,"0");
 
 }
 
@@ -116,27 +118,43 @@ function differenceDate(date) {
 
 //dodac event listner na wysyłanie formularza i pobrac dane
 let form = document.getElementById('form')
-console.info(form);
+//console.info(form);
 
 form.addEventListener('submit', function (e) {
     e.preventDefault()
     let nameInput = document.querySelector('[name="title"]').value
     let stopDateInput = document.querySelector('[name="stop_date"]').value
     let statusInput = document.querySelector('[name="status"]').value
+    let idInput=document.querySelector('[name="id"]').value
     console.info(nameInput)
     console.info(stopDateInput)
     console.info(statusInput)
+    console.info(idInput)
     let obj = {
+        id: listTodo.length+1,
         title: nameInput,
         stop_date: new Date(stopDateInput),
         status: statusInput,
         prior: 1
     }
-
-    listTodo.push(obj)
+    if(idInput==''){
+        listTodo.push(obj)
+    }else{
+        
+        listTodo.forEach(elem=>{
+            console.info(elem)
+            if(elem.id == idInput){
+                elem.title=nameInput
+                elem.stop_date=new Date(stopDateInput)
+                elem.status=statusInput
+            }
+        })
+    }
+  
+    nameInput=""
+    stopDateInput=""
+    statusInput=""
+    idInput=""
     createTodoList()
-
+    
 })
-
-
-
