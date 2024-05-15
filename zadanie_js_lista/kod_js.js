@@ -5,7 +5,7 @@ function createTodoLiElement(todo) {
     let li = document.createElement('li')
 
     let diff = differenceDate(todo.stop_date)
-    console.info(diff);
+    //console.info(diff);
     if (diff < 0) {
         li.classList.add('border', 'border-danger')
     } else if (diff < 6) {
@@ -49,12 +49,13 @@ function createTodoLiElement(todo) {
     let buttonDelete = document.createElement('i')
     buttonDelete.classList.add('bi','bi-trash') 
     buttonDelete.addEventListener('click',function() {
-<<<<<<< HEAD
         //alert('aaa');
         let index=listTodo.indexOf(todo)
         listTodo.splice(index,1) 
         createTodoList()
     });
+
+    
 
     let buttonEdit = document.createElement('i')
     buttonEdit.classList.add('bi','bi-pencil') 
@@ -62,27 +63,22 @@ function createTodoLiElement(todo) {
         let nameInput2 = document.querySelector('[name="title"]');
         let stopDateInput2 = document.querySelector('[name="stop_date"]');
         let statusInput2 = document.querySelector('[name="status"]');
-    
-       
+        let idInput2=document.querySelector('[name="id"]')
+      
         nameInput2.value = todo.title;
         stopDateInput2.value = formatDate(todo.stop_date);
         statusInput2.value = todo.status;
+        idInput2.value=todo.id
     
         console.info(nameInput2.value);
         console.info(stopDateInput2.value);
         console.info(statusInput2.value);
+        console.info(idInput2.value)
     });
     
 
     divTools.appendChild(buttonDelete)
     divTools.appendChild(buttonEdit)
-=======
-        li.remove()
-    });
-
-
-    divTools.appendChild(buttonDelete)
->>>>>>> 927a60f9157c0e017cd1f719b48cab0175a879a6
 
     divRow.appendChild(divStatus)
     divRow.appendChild(divTitle);
@@ -110,8 +106,8 @@ function formatDate(date) {
     let day = date.getDate();
     let month = (date.getMonth() + 1);
     let year = date.getFullYear();
-
-    return year + '-' + (month) + '-' + day;
+   
+    return year + '-' + String(month).padStart(2,"0") + '-' + String(day).padStart(2,"0");
 
 }
 
@@ -121,34 +117,98 @@ function differenceDate(date) {
     let difference = date.getTime() - dateNow.getTime();
     return Math.round(difference / 1000 / 60 / 60 / 24);
 }
+let form_szukaj=document.getElementById("szukaj")
+
+let searchbutton=document.getElementById("btn_szukaj")
+let div_znalezione=document.getElementById("znalezione")
+searchbutton.addEventListener("click",()=>{
+    //alert("aa")
+    let name_s=document.querySelector(".nazwa-szukaj")
+    let data_s=document.querySelector(".data-szukaj")
+    let status_s=document.querySelector(".status-szukaj")
+
+    console.info(name_s.value)
+    console.info(data_s.value)
+    console.info(status_s.value)
+    
+    let found_name=document.createElement("span")
+    let found_data=document.createElement("span")
+    let found_status=document.createElement("span")
+    listTodo.forEach(item=>{
+        //console.info(item.title)
+        if(name_s.value==item.title){
+            name_s.value=item.title
+            console.info(item)
+            found_name.appendChild(item.title)
+            found_data.appendChild(item.stop_date)
+            found_status.appendChild(item.status)
+
+            div_znalezione.appendChild(found_name)
+            div_znalezione.appendChild(found_data)
+            div_znalezione.appendChild(found_status)
+        }else{
+            console.info("nie ma!")
+        }
+        if(data_s.value==item.stop_date){
+            data_s.value=item.stop_date
+            console.info(item)
+        }else{
+            console.info("nie ma!")
+        }
+        if(status_s.value==item.status){
+            status_s.value=item.status
+            console.info(item)
+        }else{
+            console.info("nie ma!")
+        }
+    })
+    
+    
+    createTodoList()
+})
+
+
+    
 
 //dodac event listner na wysyłanie formularza i pobrac dane
 let form = document.getElementById('form')
-console.info(form);
+//console.info(form);
 
 form.addEventListener('submit', function (e) {
     e.preventDefault()
     let nameInput = document.querySelector('[name="title"]').value
     let stopDateInput = document.querySelector('[name="stop_date"]').value
     let statusInput = document.querySelector('[name="status"]').value
-<<<<<<< HEAD
+    let idInput=document.querySelector('[name="id"]').value
     console.info(nameInput)
     console.info(stopDateInput)
     console.info(statusInput)
-=======
-    
->>>>>>> 927a60f9157c0e017cd1f719b48cab0175a879a6
+    console.info(idInput)
     let obj = {
+        id: listTodo.length+1,
         title: nameInput,
         stop_date: new Date(stopDateInput),
         status: statusInput,
         prior: 1
     }
-
-    listTodo.push(obj)
+    if(idInput==''){
+        listTodo.push(obj)
+    }else{
+        
+        listTodo.forEach(elem=>{
+            console.info(elem)
+            if(elem.id == idInput){
+                elem.title=nameInput
+                elem.stop_date=new Date(stopDateInput)
+                elem.status=statusInput
+            }
+        })
+    }
+  
+    nameInput=""
+    stopDateInput=""
+    statusInput=""
+    idInput=""
     createTodoList()
-
+    
 })
-
-
-
