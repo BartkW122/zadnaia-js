@@ -211,4 +211,8 @@ form.addEventListener('submit', function (e) {
     idInput=""
     createTodoList()
     
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> 2b5d5559ebab3c358084777b4e5ddf9ac9b42731
