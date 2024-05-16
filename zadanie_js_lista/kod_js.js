@@ -120,46 +120,46 @@ function differenceDate(date) {
 let form_szukaj=document.getElementById("szukaj")
 
 let searchbutton=document.getElementById("btn_szukaj")
-let div_znalezione=document.getElementById("znalezione")
+let div_zanlezione=document.getElementById("znalezione")
 searchbutton.addEventListener("click",()=>{
     //alert("aa")
     let name_s=document.querySelector(".nazwa-szukaj")
     let data_s=document.querySelector(".data-szukaj")
     let status_s=document.querySelector(".status-szukaj")
-
-    console.info(name_s.value)
-    console.info(data_s.value)
-    console.info(status_s.value)
+    let lista_zadan=document.querySelector(".list-group")
+    let child_search=lista_zadan.childNodes
     
-    let found_name=document.createElement("span")
-    let found_data=document.createElement("span")
-    let found_status=document.createElement("span")
+    console.info(name_s.value)
+    console.info(new Date(data_s.value))
+    console.info(status_s.value)
+    //console.info(lista_zadan)
+    child_search.forEach(elem=>{
+        let child_search2=elem.childNodes
+        //console.info(child_search2)
+        child_search2.forEach(item=>{
+            let child_search3=item.childNodes
+            //console.info(child_search3)
+            child_search3.forEach(elem2=>{
+                console.info(elem2)
+            })
+        })
+    })
+ 
     listTodo.forEach(item=>{
-        //console.info(item.title)
         if(name_s.value==item.title){
             name_s.value=item.title
             console.info(item)
-            found_name.appendChild(item.title)
-            found_data.appendChild(item.stop_date)
-            found_status.appendChild(item.status)
-
-            div_znalezione.appendChild(found_name)
-            div_znalezione.appendChild(found_data)
-            div_znalezione.appendChild(found_status)
-        }else{
-            console.info("nie ma!")
+          
         }
         if(data_s.value==item.stop_date){
             data_s.value=item.stop_date
             console.info(item)
-        }else{
-            console.info("nie ma!")
+          
         }
         if(status_s.value==item.status){
             status_s.value=item.status
             console.info(item)
-        }else{
-            console.info("nie ma!")
+            
         }
     })
     
@@ -211,8 +211,5 @@ form.addEventListener('submit', function (e) {
     idInput=""
     createTodoList()
     
-<<<<<<< HEAD
+
 })
-=======
-})
->>>>>>> 2b5d5559ebab3c358084777b4e5ddf9ac9b42731
