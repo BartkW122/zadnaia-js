@@ -1,23 +1,22 @@
-
 function createTodoLiElement(todo) {
-
+ 
     let ul = document.querySelector('ul.list-group')
     let li = document.createElement('li')
-
+ 
     let diff = differenceDate(todo.stop_date)
-    //console.info(diff);
+    console.info(diff);
     if (diff < 0) {
         li.classList.add('border', 'border-danger')
     } else if (diff < 6) {
         li.classList.add('border', 'border-warning')
     }
-
+ 
     let divRow = document.createElement('div')
     divRow.classList.add('row');
-
+ 
     let divStatus = document.createElement('div')
     divStatus.classList.add('col-2')
-
+ 
     let badge = document.createElement('span')
     badge.classList.add('badge')
     if (todo.status == todoStatus.active) {
@@ -29,70 +28,63 @@ function createTodoLiElement(todo) {
     if (todo.status == todoStatus.done) {
         badge.classList.add('bg-success')
     }
-
+ 
     badge.innerHTML = todo.status
     divStatus.appendChild(badge);
-
+ 
     let divTitle = document.createElement('div')
     divTitle.classList.add('col-6')
     divTitle.innerHTML = todo.title
-
-
-
+ 
+ 
+ 
     let divDate = document.createElement('div')
     divDate.classList.add('col-2')
     divDate.innerHTML = formatDate(todo.stop_date)
-
+ 
     let divTools = document.createElement('div')
     divTools.classList.add('col-2')
-    
+   
     let buttonDelete = document.createElement('i')
-    buttonDelete.classList.add('bi','bi-trash') 
+    buttonDelete.classList.add('bi','bi-trash')
     buttonDelete.addEventListener('click',function() {
-        //alert('aaa');
-        let index=listTodo.indexOf(todo)
-        listTodo.splice(index,1) 
+        let index = listTodo.indexOf(todo)
+        if(index > -1) {
+            listTodo.splice(index,1);
+        }
         createTodoList()
     });
-
-    
-
-    let buttonEdit = document.createElement('i')
-    buttonEdit.classList.add('bi','bi-pencil') 
-    buttonEdit.addEventListener('click', function () {
-        let nameInput2 = document.querySelector('[name="title"]');
-        let stopDateInput2 = document.querySelector('[name="stop_date"]');
-        let statusInput2 = document.querySelector('[name="status"]');
-        let idInput2=document.querySelector('[name="id"]')
-      
-        nameInput2.value = todo.title;
-        stopDateInput2.value = formatDate(todo.stop_date);
-        statusInput2.value = todo.status;
-        idInput2.value=todo.id
-    
-        console.info(nameInput2.value);
-        console.info(stopDateInput2.value);
-        console.info(statusInput2.value);
-        console.info(idInput2.value)
-    });
-    
-
+ 
+ 
     divTools.appendChild(buttonDelete)
+ 
+ 
+    let buttonEdit = document.createElement('i')
+    buttonEdit.classList.add('bi','bi-pencil')
+    buttonEdit.addEventListener('click',function() {
+      document.querySelector('[name=title]').value = todo.title;
+      document.querySelector('[name=stop_date]').value = formatDate(todo.stop_date);
+      document.querySelector('[name=status]').value = todo.status;
+      document.querySelector('[name=id]').value = todo.id;
+     
+    });
     divTools.appendChild(buttonEdit)
-
+ 
+ 
+ 
     divRow.appendChild(divStatus)
     divRow.appendChild(divTitle);
     divRow.appendChild(divDate);
     divRow.appendChild(divTools);
-
+ 
     li.appendChild(divRow);
     li.classList.add('list-group-item')
-
+ 
     ul.appendChild(li)
-
-
+ 
+ 
 }
-
+ 
 function createTodoList() {
     document.querySelector('ul.list-group').innerHTML = '';
     listTodo.forEach((todo) => {
@@ -100,119 +92,90 @@ function createTodoList() {
     })
 }
 createTodoList()
-
+ 
 function formatDate(date) {
-
+ 
     let day = date.getDate();
     let month = (date.getMonth() + 1);
     let year = date.getFullYear();
-   
-    return year + '-' + String(month).padStart(2,"0") + '-' + String(day).padStart(2,"0");
-
+ 
+    return year + '-' + String(month).padStart(2,'0') + '-' + String(day).padStart(2,'0');
+ 
 }
-
+ 
 function differenceDate(date) {
     let dateNow = new Date();
     // console.info(dateNow,date);
     let difference = date.getTime() - dateNow.getTime();
     return Math.round(difference / 1000 / 60 / 60 / 24);
 }
-let form_szukaj=document.getElementById("szukaj")
-
-let searchbutton=document.getElementById("btn_szukaj")
-let div_znalezione=document.getElementById("znalezione")
-searchbutton.addEventListener("click",()=>{
-    //alert("aa")
-    let name_s=document.querySelector(".nazwa-szukaj")
-    let data_s=document.querySelector(".data-szukaj")
-    let status_s=document.querySelector(".status-szukaj")
-
-    console.info(name_s.value)
-    console.info(data_s.value)
-    console.info(status_s.value)
-    
-    let found_name=document.createElement("span")
-    let found_data=document.createElement("span")
-    let found_status=document.createElement("span")
+let form_search= document.getElementById('form_search')
+console.info(form_search);
+ 
+form_search.addEventListener('submit',(a)=>{
+    a.preventDefault()
+    let name_Input_s = document.querySelector('[name="title_s"]').value
+    let stop_Date_Input_s = document.querySelector('[name="stop_date_s"]').value
+    let status_Input_s = document.querySelector('[name="status_s"]').value
+ 
+    //alert("Hello")
+    console.info(name_Input_s)
+    console.info(new Date(stop_Date_Input_s))
+    console.info(status_Input_s)
+ 
     listTodo.forEach(item=>{
-        //console.info(item.title)
-        if(name_s.value==item.title){
-            name_s.value=item.title
+        if(name_Input_s==item.title){
             console.info(item)
-            found_name.appendChild(item.title)
-            found_data.appendChild(item.stop_date)
-            found_status.appendChild(item.status)
-
-            div_znalezione.appendChild(found_name)
-            div_znalezione.appendChild(found_data)
-            div_znalezione.appendChild(found_status)
-        }else{
-            console.info("nie ma!")
         }
-        if(data_s.value==item.stop_date){
-            data_s.value=item.stop_date
+        if(status_Input_s==item.status){
             console.info(item)
-        }else{
-            console.info("nie ma!")
         }
-        if(status_s.value==item.status){
-            status_s.value=item.status
+        if(new Date(stop_Date_Input_s)==item.stop_date){
             console.info(item)
-        }else{
-            console.info("nie ma!")
         }
     })
-    
-    
-    createTodoList()
+   
 })
-
-
-    
-
+   
 //dodac event listner na wysyłanie formularza i pobrac dane
 let form = document.getElementById('form')
-//console.info(form);
-
+console.info(form);
+ 
 form.addEventListener('submit', function (e) {
     e.preventDefault()
     let nameInput = document.querySelector('[name="title"]').value
     let stopDateInput = document.querySelector('[name="stop_date"]').value
     let statusInput = document.querySelector('[name="status"]').value
-    let idInput=document.querySelector('[name="id"]').value
-    console.info(nameInput)
-    console.info(stopDateInput)
-    console.info(statusInput)
-    console.info(idInput)
-    let obj = {
-        id: listTodo.length+1,
-        title: nameInput,
-        stop_date: new Date(stopDateInput),
-        status: statusInput,
-        prior: 1
-    }
-    if(idInput==''){
+    let idInput = document.querySelector('[name="id"]').value
+   
+   
+ 
+ 
+    if(idInput == ''){
+        let obj = {
+            title: nameInput,
+            stop_date: new Date(stopDateInput),
+            status: statusInput,
+            prior: 1,
+            id: listTodo.length + 1
+        }
         listTodo.push(obj)
-    }else{
-        
-        listTodo.forEach(elem=>{
-            console.info(elem)
-            if(elem.id == idInput){
-                elem.title=nameInput
-                elem.stop_date=new Date(stopDateInput)
-                elem.status=statusInput
+    }else {
+        listTodo.forEach((item) => {
+            if(item.id == idInput) {
+                item.title = nameInput
+                item.stop_date = new Date(stopDateInput)
+                item.status = statusInput
             }
         })
+ 
     }
-  
-    nameInput=""
-    stopDateInput=""
-    statusInput=""
-    idInput=""
+    document.querySelector('[name=title]').value = '';
+      document.querySelector('[name=stop_date]').value = '';
+      document.querySelector('[name=status]').value = ''
+      document.querySelector('[name=id]').value = ''
+ 
+   
     createTodoList()
-    
-<<<<<<< HEAD
+ 
 })
-=======
-})
->>>>>>> 2b5d5559ebab3c358084777b4e5ddf9ac9b42731
