@@ -115,12 +115,12 @@ console.info(form_search);
 form_search.addEventListener('submit',(a)=>{
     a.preventDefault()
     let name_Input_s = document.querySelector('[name="title_s"]').value
-    let stop_Date_Input_s = document.querySelector('[name="stop_date_s"]').value
+    let stop_Date_Input_s =formatDate(new Date(document.querySelector('[name="stop_date_s"]').value))+" 00:00:00"
     let status_Input_s = document.querySelector('[name="status_s"]').value
  
     //alert("Hello")
     console.info(name_Input_s)
-    console.info(new Date(stop_Date_Input_s))
+    console.info(stop_Date_Input_s)
     console.info(status_Input_s)
  
     listTodo.forEach(item=>{
@@ -130,7 +130,7 @@ form_search.addEventListener('submit',(a)=>{
         if(status_Input_s==item.status){
             console.info(item)
         }
-        if(new Date(stop_Date_Input_s)==item.stop_date){
+        if(status_Input_s==item.stop_date){
             console.info(item)
         }
     })
