@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styl.css" />
+    </head>
+    <body>
+        <header>Podróże z uśmiechem</header>
+        <main>Wiatj ponownie na naszej stronie</main>
+        <div class="prawy">
+            <img src="park.jpg"  alt="obrazek czwarty" class="park">
+            <img src="gory_jezioro.png" alt="obrazek trzeci" class="gory" onmouseover="cien(this)" onmouseout="cien_n(this)">
+            <img src="rodzina.jpg" alt="obrazek drugi" class="rodzina">
+            <img src="jezioro1.jpg" alt="obrazek pierwszy" class="jezioro">
+        </div>
+        <script>
+            function cien(x){
+                x.style.boxShadow="0 0 10px 2px Indigo";
+                console.info("elo");
+            }
+            function cien_n(x){
+                x.style.boxShadow="0 0 0 0";
+                console.info("elo2");
+            }
+        </script>
+        <div class="lewy">
+            <h1>Nasze wycieczki</h1>
+            <ol class="lista">
+                <li>autokarowe</li>
+                <ul>
+                    <li>po Polsce</li>
+                    <li>do Niemiec i Czech</li>
+                </ul>
+                <li>samolotem</li>
+                <ul>
+                    <li>Grecja</li>
+                    <li>Barcelona</li>
+                    <li>Wenecja</li>
+                </ul>
+            </ol>
+            <h1>Pobierz dokument</h1>
+            <a href="regulamin.txt" >Regulamin biura</a>
+            </br>
+            </br>
+            <a href="biuro.html">zdjecia z wycieczek</a>
+            <form>
+                <label>Tytuł:</label>
+                <input type="text" class="tytul">
+            </br>
+            </br>
+                <label>Gatunek filmu:</label>
+                <input type="text" class="gatunek">
+            </br>
+            </br>
+                <label>Rok produkcji:</label>
+                <input type="text" class="rok">
+            </br>
+            </br>
+                <label>ocena:</label>
+                <input type="text" class="ocena">
+            </br>
+            </br>
+                <button type="reset">Czyść</button>
+                <button type="submit">Dodaj</button>
+            </form>
+        </div>
+        <footer>Stronę przygotował:oooooooooo</footer>
+    </body>
+</html>

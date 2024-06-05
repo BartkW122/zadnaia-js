@@ -1,0 +1,60 @@
+header{
+    background-color: indigo;
+    color: white;
+    text-align: center;
+    padding: 7px;
+    font-style: Georgia;
+}
+main{
+    background-color: #A1887F;
+    color:  white;
+    text-align: right;
+    padding: 10px;
+}
+footer{
+    background-color: indigo;
+    color: white;
+    text-align: center;
+    padding: 7px;
+    font-style: Georgia;
+}
+.prawy{
+    background-color: #D7CCC8;
+    width: 65%;
+    height: 550px;
+    float: right;
+}
+.lewy{
+    background-color: #D7CCC8;
+    width: 35%;
+    height: 550px;
+    float: left;
+}
+.lista{
+    color: indigo;
+}
+form{
+    background-color: rgb(6, 156, 179);
+}
+.park{
+    height: 240px;
+    margin: 6px;
+    border-radius: 20px;
+}
+.gory{
+    height: 240px;
+    margin: 6px;
+    border-radius: 20px;
+}
+.rodzina{
+    height: 240px;
+    margin: 6px;
+    border-radius: 20px;
+}
+.jezioro{
+    height: 240px;
+    margin: 6px;
+    border-radius: 20px;
+    border: 2px solid lightskyblue;
+    box-shadow:0 0 20px 10px;
+}
