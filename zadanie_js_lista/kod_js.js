@@ -109,7 +109,6 @@ function differenceDate(date) {
     let difference = date.getTime() - dateNow.getTime();
     return Math.round(difference / 1000 / 60 / 60 / 24);
 }
-<<<<<<< HEAD
 let form_search= document.getElementById('form_search')
 console.info(form_search);
  
@@ -127,55 +126,12 @@ form_search.addEventListener('submit',(a)=>{
     listTodo.forEach(item=>{
         if(name_Input_s==item.title){
             console.info(item)
-=======
-let form_szukaj=document.getElementById("szukaj")
-
-let searchbutton=document.getElementById("btn_szukaj")
-let div_zanlezione=document.getElementById("znalezione")
-searchbutton.addEventListener("click",()=>{
-    //alert("aa")
-    let name_s=document.querySelector(".nazwa-szukaj")
-    let data_s=document.querySelector(".data-szukaj")
-    let status_s=document.querySelector(".status-szukaj")
-    let lista_zadan=document.querySelector(".list-group")
-    let child_search=lista_zadan.childNodes
-    
-    console.info(name_s.value)
-    console.info(new Date(data_s.value))
-    console.info(status_s.value)
-    //console.info(lista_zadan)
-    child_search.forEach(elem=>{
-        let child_search2=elem.childNodes
-        //console.info(child_search2)
-        child_search2.forEach(item=>{
-            let child_search3=item.childNodes
-            //console.info(child_search3)
-            child_search3.forEach(elem2=>{
-                console.info(elem2)
-            })
-        })
-    })
- 
-    listTodo.forEach(item=>{
-        if(name_s.value==item.title){
-            name_s.value=item.title
-            console.info(item)
-          
->>>>>>> 986ccd20498427c1a7da9a5b9884bc6f4ab42f6c
         }
         if(status_Input_s==item.status){
             console.info(item)
-<<<<<<< HEAD
-=======
-          
->>>>>>> 986ccd20498427c1a7da9a5b9884bc6f4ab42f6c
         }
         if(new Date(stop_Date_Input_s)==item.stop_date){
             console.info(item)
-<<<<<<< HEAD
-=======
-            
->>>>>>> 986ccd20498427c1a7da9a5b9884bc6f4ab42f6c
         }
     })
    
@@ -221,11 +177,5 @@ form.addEventListener('submit', function (e) {
  
    
     createTodoList()
-<<<<<<< HEAD
  
 })
-=======
-    
-
-})
->>>>>>> 986ccd20498427c1a7da9a5b9884bc6f4ab42f6c
